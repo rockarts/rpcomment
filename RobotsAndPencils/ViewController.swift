@@ -10,11 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var storage: DataStore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let dataStore = storage {
+            dataStore.save(comment: RPComment(id: 1, text: "Hi!"))
+            dataStore.save(comment: RPAnnotation(id: 2, text: "Hi again!"))
+        }
     }
-
-
 }
-
